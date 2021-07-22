@@ -1,0 +1,26 @@
+version: '3'
+
+services: 
+    git-web:
+        image: nginx
+        container_name: 'git-web'
+        hostname: 'git-web'
+        volumes: 
+            - ./git-web:/usr/share/nginx/html
+        ports:
+            - 30080:80
+
+    mm-web:
+        image: nginx
+        container_name: 'mm-web'
+        hostname: 'mm-web'
+        volumes:
+            - ./mm-web:/usr/share/nginx/html
+        ports: 
+            - 20080:80
+    rever-pro:
+        image: nginx
+        volumes: 
+            - ./rever-pro/nginx.conf:/etc/nginx/nginx.conf
+        ports: 
+            - 80:80
